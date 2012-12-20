@@ -14,7 +14,7 @@ public class Read {
 		try{
 			
 			
-			FileInputStream fis = new FileInputStream("wada.txt");
+			FileInputStream fis = new FileInputStream("alan.txt");
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			Object who = ois.readObject();
 			ois.close();
@@ -24,6 +24,9 @@ public class Read {
 				System.out.println(p.getFirstName());
 				System.out.println(p.getLastName());
 				System.out.println(p.getAge());
+				System.out.println(p.getParent().getFirstName());
+				System.out.println(p.getParent().getLastName());
+				System.out.println(p.getParent().getAge());
 				
 			}
 			

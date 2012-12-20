@@ -5,17 +5,17 @@ import java.io.Serializable;
  * シリアライズとデシリアライズのサンプル
  */
 
-public class Person implements Serializable{
+public class Person implements Serializable, Cloneable{
 
 	private String firstName;
 	private String lastName;
-	private transient int age; //transient 永続化させない（シリアライズさせない）
+	//private int age; //transient 永続化させない（シリアライズさせない）
 	private Person parent;
 	
-	public Person(String fn, String ln, int a){
+	public Person(String fn, String ln){
 		this.firstName = fn;
 		this.lastName = ln;
-		this.age = a;
+		//this.age = a;
 	}
 
 	public String getFirstName() {
@@ -33,7 +33,7 @@ public class Person implements Serializable{
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
+/*
 	public int getAge() {
 		return age;
 	}
@@ -41,7 +41,7 @@ public class Person implements Serializable{
 	public void setAge(int age) {
 		this.age = age;
 	}
-
+*/
 	public Person getParent() {
 		return parent;
 	}
@@ -50,6 +50,8 @@ public class Person implements Serializable{
 		this.parent = parent;
 	}
 	
-	
+	public Object clone() throws CloneNotSupportedException{
+		return super.clone();
+	}
 
 }
